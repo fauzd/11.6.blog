@@ -5,8 +5,6 @@ title.textContent = 'Список статей с GOREST';
 titleContainer.append(title);
 document.querySelector('.container').append(titleContainer);
 
-
-
 function createCard (title,text,postId) {
     let card = document.createElement('div');
     card.classList.add('card','mb-3');
@@ -36,47 +34,6 @@ function createCard (title,text,postId) {
     container.append(card);
 };
 
-// function createNav(activePage) {
-//     let nav = document.createElement('nav');
-//     //nav.classList.setAttribute("aria-label", "Навигация по страницам");
-
-//     let pagination = document.createElement('ul');
-//     pagination.classList.add('pagination', 'pagination-sm', 'justify-content-center');
-//     pagination.innerHTML = `
-        
-//         <li class="page-item"><a class="page-link" href="http://192.168.3.22:5500/11.6.blog/index.html">1</a></li>
-//         <li class="page-item"><a class="page-link" href="http://192.168.3.22:5500/11.6.blog/index.html?page=2">2</a></li>
-//         <li class="page-item"><a class="page-link" href="http://192.168.3.22:5500/11.6.blog/index.html?page=3">3</a></li>
-        
-//     `
-//     nav.append(pagination);
-//     document.querySelector('.container').append(nav);
-// }
-//---------------------------Номера страниц все встают в одну строку и не учитывают ширину контейнера-----------------
-// function createNav(numberOfPages) {
-//     let navContainer = document.createElement('div');
-//     navContainer.classList.add('container-fluid');
-//     let nav = document.createElement('nav');
-//     let pagination = document.createElement('ul');
-//     pagination.classList.add('pagination', 'pagination-sm', 'justify-content-center', 'col-12');
-//     //let pages = document.createElement('li')
-
-//     let page = 1
-//     while (page <= numberOfPages) {
-//         let pages = document.createElement('li')
-//         pages.classList.add('page-link') 
-//         pages.textContent = page;
-//         pagination.append(pages);
-//         console.log(`это итерация № ${page}`);
-//         page++;
-//     }
-//     nav.append(pagination);
-//     document.querySelector('.col').append(nav);
-//     //navContainer.append(nav);
-//     //document.querySelector('.container').append(navContainer);
-// };
-//------------------------------------------------------------------------------------------------------------------------------------------------
-
 function createNav(numberOfPages) {
     let navContainer = document.createElement('div');
     navContainer.classList.add('d-sm-inline-flex', 'flex-wrap', 'flex-row', 'mb-3');
@@ -94,8 +51,6 @@ function createNav(numberOfPages) {
     
     document.querySelector('.container').append(navContainer);
 }
-
-
 
 async function loadPosts(pageNumber) {
     if (pageNumber == 1 || pageNumber === null) var response = await fetch ('https://gorest.co.in/public/v2/posts?page=1');
@@ -118,6 +73,3 @@ console.log(pageParams)
 console.log(currentPageNumber)
 
 loadPosts(currentPageNumber);
-
-
-
